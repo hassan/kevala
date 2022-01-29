@@ -5,7 +5,7 @@ defmodule Kevala do
   alias Kevala.Filter
 
   def fetch_and_process(filename, mode) do
-    (File.cwd!() <> "/test/" <> filename)
+    (File.cwd!() <> filename)
     |> File.read!()
     |> process(mode)
   end
@@ -26,7 +26,7 @@ defmodule Kevala do
   end
 
   defp output(data) do
-    File.write!(File.cwd!() <> "/test/output.csv", data)
+    File.write!(File.cwd!() <> "/output.csv", data)
   end
 
   defp clean_phone_numbers(lines) when is_list(lines) do
